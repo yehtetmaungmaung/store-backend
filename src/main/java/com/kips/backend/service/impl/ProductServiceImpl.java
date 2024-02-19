@@ -63,6 +63,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product getProductById(Integer id) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isPresent()) {
+            return optionalProduct.get();
+        }
+        throw new GeneralException("Product not found");
+    }
+
+    @Override
     public List<ProductDto> getProducts() {
         List<Product> products = productRepository.findAll();
         return productMapper.toDtoList(products);

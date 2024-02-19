@@ -1,6 +1,7 @@
 package com.kips.backend.service;
 
 import com.kips.backend.service.request.ProductRequest;
+import com.kips.backend.domain.Product;
 import com.kips.backend.service.dto.ProductDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +12,8 @@ public interface ProductService {
     void save(ProductRequest dto);
 
     ProductDto getById(Integer id);
+    
+    Product getProductById(Integer id);
 
     List<ProductDto> getProducts();
 

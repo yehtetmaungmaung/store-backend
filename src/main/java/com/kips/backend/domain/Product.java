@@ -3,7 +3,9 @@ package com.kips.backend.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +16,7 @@ import java.util.List;
 @Table(name = "product")
 public class Product {
 
+    @SuppressWarnings("unused")
     private static final long serialVersionUID = 1905122041950251207L;
 
     @Id
@@ -45,11 +48,14 @@ public class Product {
     private List<Review> reviews;
 
     @ManyToOne
-    @JoinColumn(name="brand_id")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "id.product")
+    private Set<OrderItem> orderItems = new HashSet<>();
 
 }
