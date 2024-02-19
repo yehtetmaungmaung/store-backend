@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kips.backend.domain.Order;
 import com.kips.backend.service.OrderService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping(value = "/api/orders")
@@ -25,9 +28,10 @@ public class OrderController {
         return ResponseEntity.ok().body(orders);
     }
 
-    @GetMapping(value = "{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id) {
-        Order order = orderService.findById(id);
-        return ResponseEntity.ok().body(order);
-    }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Order> findById(@PathVariable Long id){
+		Order order = orderService.findById(id);
+		return ResponseEntity.ok().body(order);
+	}
+    
 }

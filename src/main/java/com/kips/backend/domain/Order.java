@@ -77,6 +77,10 @@ public class Order implements Serializable {
         return items;
     }
 
+    public void SetOrderItems(Set<OrderItem> items) {
+        this.items = items;
+    }
+
     public Double getTotal() {
         double total = 0.0;
         for (OrderItem item : items) {

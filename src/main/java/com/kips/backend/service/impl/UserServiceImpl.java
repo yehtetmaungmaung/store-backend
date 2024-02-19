@@ -44,4 +44,13 @@ public class UserServiceImpl implements UserService {
         User saved = userRepository.save(user);
         return userMapper.toDto(saved);
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isEmpty()) {
+            throw new GeneralException("User not found");
+        }
+        return userOptional.get();
+    }
 }
