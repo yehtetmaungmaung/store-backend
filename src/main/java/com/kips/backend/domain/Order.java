@@ -21,11 +21,11 @@ import jakarta.persistence.Table;
 @Table(name = "orders")
 public class Order implements Serializable {
     
-    private static final long serialVersionUID = 1905122041950251207L;
+    private static final Long serialVersionUID = 1905122041950251207L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC+6:30")
     private Instant moment;
@@ -42,18 +42,18 @@ public class Order implements Serializable {
 
     }
 
-    public Order(Long id, Instant moment, User customer) {
+    public Order(Integer id, Instant moment, User customer) {
         super();
         this.id = id;
         this.moment = moment;
         this.customer = customer;
     }
 
-    public Long getId() {
+    public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
