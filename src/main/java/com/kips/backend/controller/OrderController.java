@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kips.backend.domain.Order;
 import com.kips.backend.service.OrderService;
+import com.kips.backend.service.request.OrderRequest;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -33,5 +35,12 @@ public class OrderController {
 		Order order = orderService.findById(id);
 		return ResponseEntity.ok().body(order);
 	}
+
+    @PostMapping
+    public ResponseEntity<Order> save(@RequestBody OrderRequest orderRequest) {
+        Order savedOrder = orderService.save(orderRequest);
+        return ResponseEntity.ok().body(savedOrder);
+    }
+
     
 }

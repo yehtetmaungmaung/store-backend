@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.kips.backend.domain.Order;
 import com.kips.backend.domain.OrderItem;
 import com.kips.backend.domain.User;
-import com.kips.backend.service.ProductService;
 import com.kips.backend.service.UserService;
 import com.kips.backend.service.request.OrderRequest;
 
@@ -18,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class OrderMapper {
-    private final ProductService productService;
     private final UserService userService;
     private final OrderItemMapper orderItemMapper;
 
